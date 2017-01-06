@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/start_frag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                tools:context="com.extracliff.rotated.MainActivity">
+
+    <Button
+        android:id="@+id/themesButton"
+        android:text="Themes"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/buttonColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:clickable="true"/>
+
+    <Button
+        android:id="@+id/startButton"
+        android:text="Start"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/buttonColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/themesButton"
+        android:layout_marginBottom="25dp"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"/>
+
+    <Button
+        android:id="@+id/helpButton"
+        android:text="Help"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/buttonColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/themesButton"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"/>
+
+</RelativeLayout>
+
