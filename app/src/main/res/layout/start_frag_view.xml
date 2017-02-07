@@ -7,39 +7,65 @@
                 android:background="@color/colorPrimary"
                 tools:context="com.extracliff.rotated.MainActivity">
 
-    <Button
-        android:id="@+id/themesButton"
-        android:text="Themes"
-        android:textColor="@color/colorPrimary"
-        android:background="@color/buttonColor"
+    <ImageView
+        android:id="@+id/center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:clickable="true"/>
+        android:layout_centerInParent="true"/>
 
-    <Button
-        android:id="@+id/startButton"
-        android:text="Start"
-        android:textColor="@color/colorPrimary"
-        android:background="@color/buttonColor"
+    <ImageView
+        android:id="@+id/playButton"
+        android:src="@drawable/play_arrow_white_background_mdpi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/themesButton"
-        android:layout_marginBottom="25dp"
+        android:layout_below="@id/center"
         android:layout_centerHorizontal="true"
         android:clickable="true"/>
 
-    <Button
-        android:id="@+id/helpButton"
-        android:text="Help"
-        android:textColor="@color/colorPrimary"
-        android:background="@color/buttonColor"
+    <ImageView
+        android:id="@+id/playArrow"
+        android:src="@drawable/play_arrow_blue_mdpi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/themesButton"
-        android:layout_marginTop="25dp"
-        android:layout_centerHorizontal="true"
-        android:clickable="true"/>
+        android:layout_below="@id/center"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/title"
+        android:fontFamily="sans-serif"
+        android:textSize="50sp"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/playButton"
+        android:layout_marginBottom="45dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/topRightCorner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"/>
+
+    <ImageView
+        android:id="@+id/questionMark"
+        android:src="@drawable/question_mark_mdpi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/topRightCorner"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"/>
+
+    <ImageView
+        android:id="@+id/settingsCog"
+        android:src="@drawable/settings_cog_mdpi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/questionMark"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"/>
 
 </RelativeLayout>
 
