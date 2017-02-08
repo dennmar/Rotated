@@ -1,12 +1,14 @@
 package com.extracliff.rotated;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 /**
  * Displays the starting menus for the user
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentChangeListener {
 
 	/**
 	 * Adds a StartFragment to its layout
@@ -49,5 +51,18 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+	}
+
+	/**
+	 * Changes to the specified fragment
+	 *
+	 * @param fragment represents the fragment that will be switched to
+	 */
+	@Override
+	public void replaceFragment(Fragment fragment) {
+		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+		transaction.replace(R.id.fragment_container, fragment, null);
+		transaction.addToBackStack(null);
+		transaction.commit();
 	}
 }

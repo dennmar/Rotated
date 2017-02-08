@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Rotated</string>
     <string name="title">R O T A T E D</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 </resources>

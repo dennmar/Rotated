@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 
 // TODO: Play will lead to easy, medium, hard game selection
 // TODO: Levels will lead to level selection
@@ -15,7 +15,6 @@ import android.widget.Button;
 /**
  * Acts as the start menu and allows the user to start a game, change themes, or get help
  */
-
 public class StartFragment extends Fragment {
 
 	@Override
@@ -23,16 +22,38 @@ public class StartFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 	}
 
+	/**
+	 * Handles clicks on the ImageViews to navigate user to the following screen
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 													 Bundle savedInstanceState) {
 		final View rootView = inflater.inflate(R.layout.start_frag_view, container, false);
 
+	  ImageView play = (ImageView) rootView.findViewById(R.id.playButton);
+    play.setOnClickListener(new View.OnClickListener() {
+	    @Override
+	    public void onClick(View v) {
+	    	// takes the user to the game selection screen
+	    	GameSelectionFragment gameSelectFrag = new GameSelectionFragment();
+	    	showOtherFragment(gameSelectFrag);
+	    }
+	  });
 		return rootView;
 	}
 
 	@Override
 	public void onPause() {
 		super.onPause();
+	}
+
+	/**
+ 	 * Switches to the specified fragment
+	 *
+	 * @param desiredFragment represents the fragment that the main activity will switch to
+	 */
+	public void showOtherFragment(Fragment desiredFragment) {
+		FragmentChangeListener fc = (FragmentChangeListener)getActivity();
+		fc.replaceFragment(desiredFragment);
 	}
 }
