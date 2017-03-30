@@ -1,3 +1,10 @@
+/*
+ * File: MainActivity.java
+ * Description: The single activity used to switch all fragments for the user
+ * Version: 0.1
+ * Date: 1/30/17
+ */
+
 package com.extracliff.rotated;
 
 import android.support.v4.app.Fragment;

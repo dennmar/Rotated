@@ -1,3 +1,11 @@
+/*
+ * File: StartFragment.java
+ * Description: The first fragment displayed to the user upon start up and the fragment that acts
+ *              as the 'home screen' of the app
+ * Version: 0.1
+ * Date: 3/30/17
+ */
+
 package com.extracliff.rotated;
 
 import android.os.Bundle;
