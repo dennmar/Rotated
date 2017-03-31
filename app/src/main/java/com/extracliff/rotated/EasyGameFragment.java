@@ -38,16 +38,17 @@ public class EasyGameFragment extends Fragment {
 				int squareID = getResources().getIdentifier(squareName, "id",
 						getContext().getPackageName());
 				final ImageView currView = (ImageView)rootView.findViewById(squareID);
+				currView.getDrawable().setLevel(1);
 				currView.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						if (currView.getTag() == null || !currView.getTag().equals("black")) {
+						if (currView.getDrawable().getLevel() == 1) {
 							currView.setImageResource(R.drawable.rounded_square_black_mdpi);
-							currView.setTag("black");
+							currView.getDrawable().setLevel(0);
 						}
 						else {
 							currView.setImageResource(R.drawable.rounded_square_mdpi);
-							currView.setTag("white");
+							currView.getDrawable().setLevel(1);
 						}
 					}
 				});
@@ -55,5 +56,10 @@ public class EasyGameFragment extends Fragment {
 		}
 
 		return rootView;
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
 	}
 }
