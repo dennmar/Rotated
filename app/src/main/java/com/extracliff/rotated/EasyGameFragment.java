@@ -2,7 +2,7 @@
  * File: EasyGameFragment.java
  * Description: Allows the user to play an easy game of Rotated
  * Version: 0.21
- * Date: 1/30/17
+ * Date: 4/30/17
  */
 
 package com.extracliff.rotated;

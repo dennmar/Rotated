@@ -1,8 +1,8 @@
 /*
  * File: GameSelectionFragment.java
  * Description: Offers the user three choices for the difficulty of the game
- * Version: 1.0
- * Date: 1/30/17
+ * Version: 1.1
+ * Date: 4/2/17
  */
 
 package com.extracliff.rotated;
@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 
 /**
  * Allows the user to select an easy, medium, or hard game
@@ -33,12 +32,20 @@ public class GameSelectionFragment extends Fragment {
 													 Bundle savedInstanceState) {
 		final View rootView = inflater.inflate(R.layout.game_selection_frag_view, container, false);
 
-		Button easy = (Button) rootView.findViewById(R.id.easyButton);
+		Button easy = (Button)(rootView.findViewById(R.id.easyButton));
 		easy.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				EasyGameFragment easyGameFrag = new EasyGameFragment();
 				showOtherFragment(easyGameFrag);
+			}
+		});
+		Button medium = (Button)(rootView.findViewById(R.id.mediumButton));
+		medium.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				MediumGameFragment medGameFrag = new MediumGameFragment();
+				showOtherFragment(medGameFrag);
 			}
 		});
 		return rootView;
