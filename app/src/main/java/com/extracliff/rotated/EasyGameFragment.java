@@ -27,6 +27,8 @@ public class EasyGameFragment extends Fragment {
 	public static final int COL_NUM_INDEX = 3;
 	public static final int WHITE_LEVEL = 1;
 	public static final int BOARD_SIZE = 5;
+	public static final int MIN_BLACK_SQUARES = 6;
+	public static final int MAX_BLACK_SQUARES = 10;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,10 @@ public class EasyGameFragment extends Fragment {
 				});
 			}
 		}
+
+		RandomizableBoard board = new RandomizableBoard(rootView, MIN_BLACK_SQUARES, MAX_BLACK_SQUARES,
+				BOARD_SIZE);
+		board.randomize();
 
 		return rootView;
 	}
