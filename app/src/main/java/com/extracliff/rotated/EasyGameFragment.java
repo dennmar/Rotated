@@ -1,8 +1,8 @@
 /*
  * File: EasyGameFragment.java
  * Description: Allows the user to play an easy game of Rotated
- * Version: 0.21
- * Date: 4/30/17
+ * Version: 0.22
+ * Date: 3/30/17
  */
 
 package com.extracliff.rotated;
@@ -19,14 +19,14 @@ import android.widget.ImageView;
  */
 public class EasyGameFragment extends Fragment {
 
-	public static final int MIN_ROW = 1;
-	public static final int MIN_COL = 1;
-	public static final int MAX_ROW = 5;
-	public static final int MAX_COL = 5;
+	public static final int MIN_ROW = 0;
+	public static final int MIN_COL = 0;
+	public static final int MAX_ROW = 4;
+	public static final int MAX_COL = 4;
 	public static final int ROW_NUM_INDEX = 1;
 	public static final int COL_NUM_INDEX = 3;
 	public static final int WHITE_LEVEL = 1;
-	public static final int BOARD_SIZE = 5;
+	public static final int BOARD_SIZE = 4;
 	public static final int MIN_BLACK_SQUARES = 6;
 	public static final int MAX_BLACK_SQUARES = 10;
 

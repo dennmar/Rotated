@@ -1,7 +1,7 @@
 /*
  * File: Square.java
  * Description: A rotatable Square that also rotates its neighbors
- * Version: 0.1
+ * Version: 0.11
  * Date: 4/1/17
  */
 
@@ -17,8 +17,8 @@ import java.util.ArrayList;
  */
 public class Square {
 
-	public static final int MIN_ROW = 1;
-	public static final int MIN_COL = 1;
+	public static final int MIN_ROW = 0;
+	public static final int MIN_COL = 0;
 	public static final int WHITE_LEVEL = 1;
 	public static final int BLACK_LEVEL = 0;
 	private int maxRow;
