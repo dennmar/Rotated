@@ -1,7 +1,7 @@
 /*
  * File: Square.java
  * Description: A rotatable Square that also rotates its neighbors
- * Version: 0.11
+ * Version: 0.12
  * Date: 4/1/17
  */
 
@@ -103,5 +103,13 @@ public class Square {
 			square.setImageResource(R.drawable.rounded_square_mdpi);
 			square.getDrawable().setLevel(WHITE_LEVEL);
 		}
+	}
+
+	/**
+	 * Accesses the ImageView of the square.
+	 * @return The ImageView of the square
+	 */
+	public ImageView getSquare() {
+		return square;
 	}
 }
