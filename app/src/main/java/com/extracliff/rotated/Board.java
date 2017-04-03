@@ -1,7 +1,7 @@
 /*
  * File: Board.java
  * Description: A board of rotatable squares that can be randomized
- * Version: 0.1
+ * Version: 0.11
  * Date: 4/2/17
  */
 
@@ -66,7 +66,6 @@ public class Board {
 		}
 	}
 
-
 	/**
 	 * Changes a random amount of white squares to rotate to black.
 	 * @param minBlackSquares The minimum amount of white squares that will turn into black squares
@@ -87,13 +86,5 @@ public class Board {
 				i++;
 			}
 		}
-	}
-
-	/**
-	 * Accesses the board of Squares.
-	 * @return The 2D array of the squares on the board
-	 */
-	public Square[][] getBoard() {
-		return board;
 	}
 }

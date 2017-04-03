@@ -1,7 +1,7 @@
 /*
  * File: GameSelectionFragment.java
  * Description: Offers the user three choices for the difficulty of the game
- * Version: 1.1
+ * Version: 1.11
  * Date: 4/2/17
  */
 
@@ -19,13 +19,25 @@ import android.widget.Button;
  */
 public class GameSelectionFragment extends Fragment {
 
+	/**
+	 * Called to do initial creation of a fragment.
+	 * @param savedInstanceState If the fragment is being re-created from a previous saved state,
+	 *                           this is the state.
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
 
 	/**
-	 * Handles clicks on the three different difficulty settings
+	 * Called to have the fragment instantiate its user interface view.
+	 * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment
+	 * @param container If non-null, this is the parent view that the fragment's UI should be
+	 *                  attached to. The fragment should not add the view itself, but this can be
+	 *                  used to generate the LayoutParams of the view.
+	 * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous
+	 *                           saved state as given here
+	 * @return The View for the fragment's UI, or null
 	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,15 +63,17 @@ public class GameSelectionFragment extends Fragment {
 		return rootView;
 	}
 
+	/**
+	 * Called when the Fragment is no longer resumed.
+	 */
 	@Override
 	public void onPause() {
 		super.onPause();
 	}
 
 	/**
-	 * Switches to the specified fragment
-	 *
-	 * @param desiredFragment represents the fragment that the main activity will switch to
+	 * Switches to the specified fragment.
+	 * @param desiredFragment The fragment that the main activity will switch to
 	 */
 	public void showOtherFragment(Fragment desiredFragment) {
 		FragmentChangeListener fc = (FragmentChangeListener)getActivity();

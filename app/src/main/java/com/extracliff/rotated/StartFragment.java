@@ -2,8 +2,8 @@
  * File: StartFragment.java
  * Description: The first fragment displayed to the user upon start up and the fragment that acts
  *              as the 'home screen' of the app
- * Version: 0.1
- * Date: 3/30/17
+ * Version: 0.11
+ * Date: 4/2/17
  */
 
 package com.extracliff.rotated;
@@ -15,23 +15,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-// TODO: Play will lead to easy, medium, hard game selection
-// TODO: Levels will lead to level selection
-// TODO: Themes will lead to theme selection
-// TODO: Help will lead to tutorial on how to play (and maybe tips for gesture shortcuts)
-
 /**
- * Acts as the start menu and allows the user to start a game, change themes, or get help
+ * Acts as the start menu and allows the user to start a game, change themes, or get help.
  */
 public class StartFragment extends Fragment {
 
+	/**
+	 * Called to do initial creation of a fragment.
+	 * @param savedInstanceState If the fragment is being re-created from a previous saved state,
+	 *                           this is the state.
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
 
 	/**
-	 * Handles clicks on the ImageViews to navigate user to the following screen
+	 * Called to have the fragment instantiate its user interface view.
+	 * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment
+	 * @param container If non-null, this is the parent view that the fragment's UI should be
+	 *                  attached to. The fragment should not add the view itself, but this can be
+	 *                  used to generate the LayoutParams of the view.
+	 * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous
+	 *                           saved state as given here
+	 * @return The View for the fragment's UI, or null
 	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +49,6 @@ public class StartFragment extends Fragment {
     play.setOnClickListener(new View.OnClickListener() {
 	    @Override
 	    public void onClick(View v) {
-	    	// takes the user to the game selection screen
 	    	GameSelectionFragment gameSelectFrag = new GameSelectionFragment();
 	    	showOtherFragment(gameSelectFrag);
 	    }
@@ -50,15 +56,17 @@ public class StartFragment extends Fragment {
 		return rootView;
 	}
 
+	/**
+	 * Called when the Fragment is no longer resumed.
+	 */
 	@Override
 	public void onPause() {
 		super.onPause();
 	}
 
 	/**
- 	 * Switches to the specified fragment
-	 *
-	 * @param desiredFragment represents the fragment that the main activity will switch to
+ 	 * Switches to the specified fragment.
+	 * @param desiredFragment The fragment that the main activity will switch to
 	 */
 	public void showOtherFragment(Fragment desiredFragment) {
 		FragmentChangeListener fc = (FragmentChangeListener)getActivity();

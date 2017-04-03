@@ -1,8 +1,8 @@
 /*
  * File: MainActivity.java
  * Description: The single activity used to switch all fragments for the user
- * Version: 0.1
- * Date: 1/30/17
+ * Version: 0.11
+ * Date: 4/2/17
  */
 
 package com.extracliff.rotated;
@@ -18,7 +18,10 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity implements FragmentChangeListener {
 
 	/**
-	 * Adds a StartFragment to its layout
+	 * Called when the activity is first created.
+	 * @param savedInstanceState  If the activity is being re-initialized after previously being
+	 *                            shut down then this Bundle contains the data it most recently
+	 *                            supplied in onSaveInstanceState(Bundle)
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,35 +38,51 @@ public class MainActivity extends AppCompatActivity implements FragmentChangeLis
 				startFragment).commit();
 	}
 
+	/**
+	 * Called after onCreate(Bundle) — or after onRestart() when the activity had been stopped, but
+	 *   is now again being displayed to the user.
+	 */
 	@Override
 	protected void onStart() {
 		super.onStart();
 	}
 
-	@Override
+	/**
+	 * Called after onRestoreInstanceState(Bundle), onRestart(), or onPause(), for your activity to
+	 *   start interacting with the user.
+	 */
+  @Override
 	protected void onResume() {
 		super.onResume();
 	}
 
+	/**
+	 * Called when an activity is going into the background, but has not (yet) been killed.
+	 */
 	@Override
 	protected void onPause() {
 		super.onPause();
 	}
 
+	/**
+	 * Called when this activity is no longer visible to the user.
+	 */
 	@Override
 	protected void onStop() {
 		super.onStop();
 	}
 
+	/**
+	 * Performs any final cleanup before an activity is destroyed.
+	 */
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 	}
 
 	/**
-	 * Changes to the specified fragment
-	 *
-	 * @param fragment represents the fragment that will be switched to
+	 * Changes to the specified fragment.
+	 * @param fragment The fragment that will be switched to
 	 */
 	@Override
 	public void replaceFragment(Fragment fragment) {
