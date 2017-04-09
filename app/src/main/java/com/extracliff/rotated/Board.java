@@ -1,7 +1,7 @@
 /*
  * File: Board.java
  * Description: A board of rotatable squares that can be randomized
- * Version: 0.13
+ * Version: 0.14
  * Date: 4/8/17
  */
 
@@ -72,15 +72,15 @@ public class Board {
 	/**
 	 * Changes a random amount of white squares to rotate to black.
 	 * @param minBlackSquares The minimum amount of white squares that will turn into black squares
-	 * @param maxBlackSquares The maximim amount of white squares that will turn into black squares
+	 * @param maxBlackSquares The maximum amount of white squares that will turn into black squares
 	 */
 	public void randomize(int minBlackSquares, int maxBlackSquares) {
 		int blackSquares = (int)(Math.random() * (maxBlackSquares - minBlackSquares + 1))
 				+ minBlackSquares;
 		int i = 0;
 		while (i < blackSquares) {
-			int row = (int)(Math.random() * maxRow) + 1;
-			int col = (int)(Math.random() * maxCol) + 1;
+			int row = (int)(Math.random() * (maxRow + 1));
+			int col = (int)(Math.random() * (maxCol + 1));
 			String squareTag = "r" + row + "c" + col;
 			Log.d("TAG", squareTag);
 			ImageView square = (ImageView)rootView.findViewWithTag(squareTag);
