@@ -1,12 +1,13 @@
 /*
  * File: Board.java
  * Description: A board of rotatable squares that can be randomized
- * Version: 0.11
+ * Version: 0.12
  * Date: 4/2/17
  */
 
 package com.extracliff.rotated;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -21,6 +22,8 @@ public class Board {
 	private static int MIN_COL = 0;
 	private static int WHITE_LEVEL = 1;
 	private static int BLACK_LEVEL = 0;
+	private static int EASY_BOARD = 4;
+	private static int MEDIUM_BOARD = 5;
 	private Square[][] board;
 	private View rootView;
 	private int maxRow;
@@ -79,9 +82,15 @@ public class Board {
 			int row = (int)(Math.random() * maxRow) + 1;
 			int col = (int)(Math.random() * maxCol) + 1;
 			String squareTag = "r" + row + "c" + col;
+			Log.d("TAG", squareTag);
 			ImageView square = (ImageView)rootView.findViewWithTag(squareTag);
 			if (square.getDrawable().getLevel() == WHITE_LEVEL) {
-				square.setImageResource(R.drawable.rounded_square_black_mdpi);
+			  if (maxRow == EASY_BOARD) {
+					square.setImageResource(R.drawable.rounded_square_black_mdpi);
+				}
+				else if (maxRow == MEDIUM_BOARD) {
+					square.setImageResource(R.drawable.rounded_square_black_medium_mdpi);
+				}
 				square.getDrawable().setLevel(BLACK_LEVEL);
 				i++;
 			}

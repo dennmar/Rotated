@@ -191,7 +191,7 @@
 
     <ImageView
         android:id="@+id/r4c4"
-        android:tag="r4c0"
+        android:tag="r4c4"
         android:src="@drawable/rounded_square_medium_mdpi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

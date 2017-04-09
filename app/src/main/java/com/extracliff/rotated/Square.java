@@ -1,7 +1,7 @@
 /*
  * File: Square.java
  * Description: A rotatable Square that also rotates its neighbors
- * Version: 0.12
+ * Version: 0.13
  * Date: 4/2/17
  */
 
@@ -21,6 +21,8 @@ public class Square {
 	public static final int MIN_COL = 0;
 	public static final int WHITE_LEVEL = 1;
 	public static final int BLACK_LEVEL = 0;
+	private static int EASY_BOARD = 4;
+	private static int MEDIUM_BOARD = 5;
 	private int maxRow;
 	private int maxCol;
 	private ImageView square;
@@ -95,13 +97,25 @@ public class Square {
 	 * @param square The square whose color will be switched
 	 */
 	private void rotate(ImageView square) {
-		if (square.getDrawable().getLevel() == WHITE_LEVEL) {
-			square.setImageResource(R.drawable.rounded_square_black_mdpi);
-			square.getDrawable().setLevel(BLACK_LEVEL);
+		if (maxRow == EASY_BOARD) {
+			if (square.getDrawable().getLevel() == WHITE_LEVEL) {
+				square.setImageResource(R.drawable.rounded_square_black_mdpi);
+				square.getDrawable().setLevel(BLACK_LEVEL);
+			}
+			else {
+				square.setImageResource(R.drawable.rounded_square_mdpi);
+				square.getDrawable().setLevel(WHITE_LEVEL);
+			}
 		}
-		else {
-			square.setImageResource(R.drawable.rounded_square_mdpi);
-			square.getDrawable().setLevel(WHITE_LEVEL);
+		else if (maxRow == MEDIUM_BOARD) {
+			if (square.getDrawable().getLevel() == WHITE_LEVEL) {
+				square.setImageResource(R.drawable.rounded_square_black_medium_mdpi);
+				square.getDrawable().setLevel(BLACK_LEVEL);
+			}
+			else {
+				square.setImageResource(R.drawable.rounded_square_medium_mdpi);
+				square.getDrawable().setLevel(WHITE_LEVEL);
+			}
 		}
 	}
 
