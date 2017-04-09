@@ -1,8 +1,8 @@
 /*
  * File: Square.java
  * Description: A rotatable Square that also rotates its neighbors
- * Version: 0.13
- * Date: 4/2/17
+ * Version: 0.14
+ * Date: 4/8/17
  */
 
 package com.extracliff.rotated;
@@ -114,6 +114,16 @@ public class Square {
 			}
 			else {
 				square.setImageResource(R.drawable.rounded_square_medium_mdpi);
+				square.getDrawable().setLevel(WHITE_LEVEL);
+			}
+		}
+		else {
+			if (square.getDrawable().getLevel() == WHITE_LEVEL) {
+				square.setImageResource(R.drawable.rounded_square_black_hard_mdpi);
+				square.getDrawable().setLevel(BLACK_LEVEL);
+			}
+			else {
+				square.setImageResource(R.drawable.rounded_square_hard_mdpi);
 				square.getDrawable().setLevel(WHITE_LEVEL);
 			}
 		}

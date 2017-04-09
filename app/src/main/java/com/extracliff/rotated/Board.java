@@ -1,8 +1,8 @@
 /*
  * File: Board.java
  * Description: A board of rotatable squares that can be randomized
- * Version: 0.12
- * Date: 4/2/17
+ * Version: 0.13
+ * Date: 4/8/17
  */
 
 package com.extracliff.rotated;
@@ -90,6 +90,9 @@ public class Board {
 				}
 				else if (maxRow == MEDIUM_BOARD) {
 					square.setImageResource(R.drawable.rounded_square_black_medium_mdpi);
+				}
+				else {
+					square.setImageResource(R.drawable.rounded_square_black_hard_mdpi);
 				}
 				square.getDrawable().setLevel(BLACK_LEVEL);
 				i++;

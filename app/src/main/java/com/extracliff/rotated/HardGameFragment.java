@@ -1,7 +1,7 @@
 /*
  * File: HardGameFragment.java
  * Description: Allows the user to play a hard game of Rotated
- * Version: 0.1
+ * Version: 0.11
  * Date: 4/8/17
  */
 
@@ -12,11 +12,24 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import java.util.ArrayList;
 
 /**
  * Starts a hard game of Rotated.
  */
 public class HardGameFragment extends Fragment {
+
+
+	public static final int MIN_ROW = 0;
+	public static final int MIN_COL = 0;
+	public static final int MAX_ROW = 6;
+	public static final int MAX_COL = 6;
+	public static final int WHITE_LEVEL = 1;
+	public static final int BOARD_SIZE = 6;
+	public static final int MIN_BLACK_SQUARES = 10;
+	public static final int MAX_BLACK_SQUARES = 14;
 
 	/**
 	 * Called to do initial creation of a fragment.
@@ -42,6 +55,23 @@ super.onCreate(savedInstanceState);
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 													 Bundle savedInstanceState) {
 		final View rootView = inflater.inflate(R.layout.hard_frag_view, container, false);
+
+		ArrayList<ImageView> squareViews = new ArrayList<>();
+		for (int i = MIN_ROW; i <= MAX_ROW; i++) {
+			for (int j = MIN_COL; j <= MAX_COL; j++) {
+				String squareName = "r" + i + "c" + j;
+				int squareID = getResources().getIdentifier(squareName, "id",
+						getContext().getPackageName());
+				final ImageView currView = (ImageView) rootView.findViewById(squareID);
+				currView.getDrawable().setLevel(WHITE_LEVEL);
+				squareViews.add(currView);
+			}
+		}
+
+		Board board = new Board(squareViews, rootView, BOARD_SIZE);
+		board.setClickListeners();
+		board.randomize(MIN_BLACK_SQUARES, MAX_BLACK_SQUARES);
+
 		return rootView;
 	}
 
