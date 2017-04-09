@@ -1,8 +1,8 @@
 /*
  * File: GameSelectionFragment.java
  * Description: Offers the user three choices for the difficulty of the game
- * Version: 1.11
- * Date: 4/2/17
+ * Version: 1.12
+ * Date: 4/8/17
  */
 
 package com.extracliff.rotated;
@@ -58,6 +58,14 @@ public class GameSelectionFragment extends Fragment {
 			public void onClick(View v) {
 				MediumGameFragment medGameFrag = new MediumGameFragment();
 				showOtherFragment(medGameFrag);
+			}
+		});
+		Button hard = (Button)(rootView.findViewById(R.id.hardButton));
+		hard.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				HardGameFragment hardGameFrag = new HardGameFragment();
+				showOtherFragment(hardGameFrag);
 			}
 		});
 		return rootView;
