@@ -1,8 +1,8 @@
 /*
  * File: GameSelectionFragment.java
  * Description: Offers the user three choices for the difficulty of the game
- * Version: 1.12
- * Date: 4/8/17
+ * Version: 1.13
+ * Date: 4/11/17
  */
 
 package com.extracliff.rotated;
@@ -82,6 +82,11 @@ public class GameSelectionFragment extends Fragment {
 	/**
 	 * Switches to the specified fragment.
 	 * @param desiredFragment The fragment that the main activity will switch to
+	 * Attribution: Stack Overflow
+	 * 							http://stackoverflow.com/questions/21228721/how-to-replace-a-fragment-on-button-
+	 *              click-of-that-fragment
+	 *              Author of question: Top Cat - http://stackoverflow.com/users/3049917/top-cat
+	 *              Author of answer: Ahmad Raza - http://stackoverflow.com/users/2105241/ahmad-raza
 	 */
 	public void showOtherFragment(Fragment desiredFragment) {
 		FragmentChangeListener fc = (FragmentChangeListener)getActivity();
