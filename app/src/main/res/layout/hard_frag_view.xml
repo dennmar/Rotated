@@ -543,4 +543,17 @@
         android:layout_marginBottom="12dp"
         android:clickable="true"/>
 
+    <TextView
+        android:id="@+id/winMessage"
+        android:text="@string/winningText"
+        android:fontFamily="sans-serif"
+        android:textSize="50sp"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/r0c2"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

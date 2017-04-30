@@ -1,17 +1,18 @@
 /*
  * File: Board.java
  * Description: A board of rotatable squares that can be randomized
- * Version: 0.14
- * Date: 4/8/17
+ * Version: 0.15
+ * Date: 4/29/17
  */
 
 package com.extracliff.rotated;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+
 
 /**
  * Creates a board of Squares that can start with a random amount of white and black squares.
@@ -63,6 +64,11 @@ public class Board {
 					@Override
 					public void onClick(View v) {
 						board[rowNumber][colNumber].rotateWithNeighbors();
+						if (hasWon()) {
+							TextView winText = (TextView)rootView.findViewById(R.id.winMessage);
+							winText.setVisibility(View.VISIBLE);
+							setClickable(false);
+						}
 					}
 				});
 			}
@@ -82,7 +88,6 @@ public class Board {
 			int row = (int)(Math.random() * (maxRow + 1));
 			int col = (int)(Math.random() * (maxCol + 1));
 			String squareTag = "r" + row + "c" + col;
-			Log.d("TAG", squareTag);
 			ImageView square = (ImageView)rootView.findViewWithTag(squareTag);
 			if (square.getDrawable().getLevel() == WHITE_LEVEL) {
 			  if (maxRow == EASY_BOARD) {
@@ -96,6 +101,43 @@ public class Board {
 				}
 				square.getDrawable().setLevel(BLACK_LEVEL);
 				i++;
+			}
+		}
+	}
+
+	/**
+	 * Checks if all the squares are black.
+	 * @return True if all squares are black, false otherwise
+	 */
+	private boolean hasWon() {
+		for (int row = 0; row <= maxRow; row++) {
+			for (int col = 0; col <= maxCol; col++) {
+				String squareTag = "r" + row + "c" + col;
+				ImageView square = (ImageView)rootView.findViewWithTag(squareTag);
+				if (square.getDrawable().getLevel() == WHITE_LEVEL) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Makes all squares on the board unclickable or clickable
+	 * @param clickable True if the all squares should be clickable, false if all squares should not
+	 *                  be clickable
+	 */
+	private void setClickable(boolean clickable) {
+		for (int row = 0; row <= maxRow; row++) {
+			for (int col = 0; col <= maxCol; col++) {
+				String squareTag = "r" + row + "c" + col;
+				ImageView square = (ImageView)rootView.findViewWithTag(squareTag);
+				if (clickable) {
+					square.setClickable(true);
+				}
+				else {
+					square.setClickable(false);
+				}
 			}
 		}
 	}
